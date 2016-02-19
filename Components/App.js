@@ -1,10 +1,11 @@
-import React, { Component, StyleSheet, View } from 'react-native';
+import React, { Component, StyleSheet, View, AsyncStorage } from 'react-native';
 import { beginGame, addWord, toggleLetter, clearTiles, shuffleRack } from '../actions';
 import Backdrop from './Backdrop';
 import Header from './Header';
 import WordEntry from './WordEntry';
 import PlayControls from './PlayControls';
 import TileRack from './TileRack';
+import { BEST_SCORE } from '../constants';
 
 
 const styles = StyleSheet.create({
@@ -20,7 +21,11 @@ export default class Bejumbled extends Component {
   constructor() {
     super();
 
-    // FIXME: Save and get best and best word score to/from device
+    AsyncStorage.getItem(BEST_SCORE)
+      .then(score => {
+        this.setState({ bestScore: Number(score) });
+      });
+
     this.state = beginGame({});
     this.beginGame = () => this.setState(beginGame(this.state));
     this.toggleLetter = index => this.setState(toggleLetter(this.state, index));

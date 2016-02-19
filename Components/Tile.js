@@ -3,7 +3,7 @@ import React, { StyleSheet, TouchableNativeFeedback, View, Text } from 'react-na
 const styles = StyleSheet.create({
   tile: {
     flex: 1,
-    maxWidth: 60,
+    // maxWidth: 60,
     padding: 5,
     margin: 5,
     backgroundColor: '#FFF9C4',

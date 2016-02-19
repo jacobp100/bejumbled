@@ -1,10 +1,12 @@
+import { AsyncStorage } from 'react-native';
 import {
-  shuffle, flatMap, fill, take, drop, sum, pullAt, concat, includes, without,
-  map, propertyOf, keys, at, range, join,
+  shuffle, flatMap, fill, take, drop, sum, pullAt, concat, includes, without, map, propertyOf,
+  keys, at, range, join,
 } from 'lodash/fp';
 import letterBag from './letterBag';
 import letterPoints from './letterPoints';
 import sowpods from './sowpods';
+import { BEST_SCORE } from './constants';
 
 const rackSize = 7;
 const wordMultipliers = [1, 1, 1, 2, 3, 4, 5];
@@ -50,8 +52,12 @@ export function addWord(state) {
   const currentWordScore = getScoreForWord(rack, selectedTiles);
   score = score + currentWordScore;
 
-  bestScore = Math.max(score, bestScore);
-  bestWordScore = Math.max(score, currentWordScore);
+  if (score > bestScore) {
+    AsyncStorage.setItem(BEST_SCORE, String(bestScore));
+  }
+
+  bestScore = Math.max(bestScore, score);
+  bestWordScore = Math.max(bestWordScore, currentWordScore);
 
   rack = pullAt(selectedTiles, rack);
   rack = concat(rack, take(wordLength, remainingLetters));
