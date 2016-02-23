@@ -83,8 +83,8 @@ android {
         applicationId "io.bejumbled.bejumbled"
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 8
-        versionName "8.0"
+        versionCode 9
+        versionName "9.0"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }

@@ -6,9 +6,8 @@ const styles = StyleSheet.create({
   },
   headerButton: {
     flex: 1,
-    padding: 8,
-    paddingLeft: 15,
-    paddingRight: 15,
+    paddingVertical: 8,
+    paddingHorizontal: 15,
   },
   headerButtonText: {
     fontSize: 12,
@@ -29,11 +28,6 @@ export default function Header({ beginGame, showStats }) {
       <TouchableNativeFeedback onPress={ beginGame }>
         <View style={ styles.headerButton }>
           <Text style={ styles.headerButtonText }>NEW GAME</Text>
-        </View>
-      </TouchableNativeFeedback>
-      <TouchableNativeFeedback onPress={ showStats }>
-        <View style={ styles.headerButton }>
-          <Text style={ styles.headerButtonText }>STATS</Text>
         </View>
       </TouchableNativeFeedback>
     </View>

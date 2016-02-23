@@ -3,14 +3,12 @@ import React, { StyleSheet, TouchableNativeFeedback, View, Text } from 'react-na
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    paddingLeft: 30,
-    paddingRight: 30,
+    paddingHorizontal: 30,
   },
   playButton: {
     flex: 1,
     margin: 10,
-    paddingTop: 8,
-    paddingBottom: 8,
+    paddingVertical: 8,
     alignItems: 'center',
     backgroundColor: '#FF5722',
   },
