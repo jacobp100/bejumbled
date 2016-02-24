@@ -3,7 +3,7 @@ import React, { StyleSheet, View, Text } from 'react-native';
 const styles = StyleSheet.create({
   wordSpace: {
     flex: 1,
-    marginVertical: 5,
+    marginHorizontal: 5,
     paddingVertical: 8,
     alignItems: 'center',
     borderColor: '#212121',
