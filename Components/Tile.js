@@ -32,6 +32,10 @@ const styles = StyleSheet.create({
   tilePointsScore: {
     textAlign: 'center',
   },
+  gameOver: {
+    marginTop: -2,
+    marginBottom: 2,
+  },
 });
 
 export function Tile({ letter, points, isSelected, onPress }) {
@@ -53,7 +57,7 @@ export function GameOverTile({ score, onPress }) {
   return (
     <TouchableNativeFeedback onPress={ onPress }>
       <View style={ styles.tile }>
-        <Text style={ styles.tileLetter }>
+        <Text style={[styles.tileLetter, styles.gameOver]}>
           GAME OVER
         </Text>
         <Text style={[styles.tilePoints, styles.tilePointsScore]}>
