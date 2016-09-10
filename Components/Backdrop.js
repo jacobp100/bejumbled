@@ -1,11 +1,9 @@
-import React, { StyleSheet, Component, View, Image, Dimensions } from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet, View, Image, Dimensions } from 'react-native';
+
 const backdrop = require('../images/backdrop.png');
 const background = require('../images/background.png');
 
-const getDimensions = () => {
-  const { width, height } = Dimensions.get('window');
-  return { width, height };
-};
 const backgroundRatio = 1.7786458333;
 
 const styles = StyleSheet.create({
@@ -23,7 +21,9 @@ export default class Backdrop extends Component {
     super();
 
     // This is shitty
-    this.state = getDimensions();
+    const { width, height } = Dimensions.get('window');
+    this.state = { width, height };
+    this.backdropView = null;
 
     this.adjustWidth = (event) => {
       const { width, height } = event.nativeEvent.layout;
@@ -36,17 +36,21 @@ export default class Backdrop extends Component {
     const backgroundHeight = width / backgroundRatio;
 
     return (
-      <View ref="backdropView" style={ styles.fullScreen } onLayout={ this.adjustWidth }>
+      <View
+        ref={backdropView => { this.backdropView = backdropView; }}
+        style={styles.fullScreen}
+        onLayout={this.adjustWidth}
+      >
         <Image
-          source={ backdrop }
+          source={backdrop}
           style={[styles.fullScreen, { width, height }]}
           resizeMode="stretch"
         />
         <Image
-          source={ background }
+          source={background}
           style={{
             position: 'absolute',
-            top: height / 2 - backgroundHeight / 2,
+            top: (height / 2) - (backgroundHeight / 2),
             left: 0,
             width,
             height: backgroundHeight,

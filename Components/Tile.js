@@ -1,4 +1,6 @@
-import React, { StyleSheet, TouchableNativeFeedback, View, Text } from 'react-native';
+import React from 'react';
+import { StyleSheet, View, Text } from 'react-native';
+import Touchable from './Touchable';
 
 const styles = StyleSheet.create({
   tile: {
@@ -40,28 +42,28 @@ const styles = StyleSheet.create({
 
 export function Tile({ letter, points, isSelected, onPress }) {
   return (
-    <TouchableNativeFeedback onPress={ onPress }>
+    <Touchable onPress={onPress}>
       <View style={[styles.tile, isSelected && styles.tileSelected]}>
         <Text style={[styles.tileLetter, isSelected && styles.tileLetterSelected]}>
-          { letter }
+          {letter}
         </Text>
         <Text style={[styles.tilePoints, isSelected && styles.tileLetterSelected]}>
-          { points }
+          {points}
         </Text>
       </View>
-    </TouchableNativeFeedback>
+    </Touchable>
   );
 }
 
 export function GameOverTile({ score, onPress }) {
   return (
-    <TouchableNativeFeedback onPress={ onPress }>
-      <View style={ styles.tile }>
+    <TouchableNativeFeedback onPress={onPress}>
+      <View style={styles.tile}>
         <Text style={[styles.tileLetter, styles.gameOver]}>
           GAME OVER
         </Text>
         <Text style={[styles.tilePoints, styles.tilePointsScore]}>
-          FINAL SCORE: { score }
+          FINAL SCORE: {score}
         </Text>
       </View>
     </TouchableNativeFeedback>

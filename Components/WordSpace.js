@@ -1,4 +1,5 @@
-import React, { StyleSheet, View, Text } from 'react-native';
+import React from 'react';
+import { StyleSheet, View, Text } from 'react-native';
 
 const styles = StyleSheet.create({
   wordSpace: {
@@ -45,16 +46,18 @@ const styles = StyleSheet.create({
 export default function WordSpace({ letter, wordIsValid, multiplierText, multiplierActive }) {
   return (
     <View style={[styles.wordSpace, !wordIsValid && styles.wordSpaceInvalid]}>
-      <View style={[
-        styles.wordMultiplierContainer,
-        multiplierActive && styles.wordMultiplierContainerActive]}
+      <View
+        style={[
+          styles.wordMultiplierContainer,
+          multiplierActive && styles.wordMultiplierContainerActive,
+        ]}
       >
         <Text style={[styles.wordMultiplier, multiplierActive && styles.wordMultiplierActive]}>
-          { multiplierText }
+          {multiplierText}
         </Text>
       </View>
       <Text style={[styles.wordLetter, !wordIsValid && styles.wordLetterInvalid]}>
-        { letter }
+        {letter}
       </Text>
     </View>
   );

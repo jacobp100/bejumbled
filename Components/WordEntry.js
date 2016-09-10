@@ -1,4 +1,5 @@
-import React, { StyleSheet, View } from 'react-native';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
 import WordSpace from './WordSpace';
 import Score from './Scores';
 
@@ -29,23 +30,23 @@ export default function WordEntry(
 
     return (
       <WordSpace
-        key={ index }
-        letter={ letter }
-        wordIsValid={ wordIsValid }
-        multiplierText={ multiplierText }
-        multiplierActive={ multiplierActive }
+        key={index}
+        letter={letter}
+        wordIsValid={wordIsValid}
+        multiplierText={multiplierText}
+        multiplierActive={multiplierActive}
       />
     );
   });
 
   return (
-    <View style={ styles.container }>
-      { word }
-      <View style={ styles.score }>
-        <Score label="best" value={ bestScore } />
-        <Score label="total" value={ score } />
-        <Score label="word" value={ wordScore } />
-        <Score label="remaining" value={ remainingLetters.length } />
+    <View style={styles.container}>
+      {word}
+      <View style={styles.score}>
+        <Score label="best" value={bestScore} />
+        <Score label="total" value={score} />
+        <Score label="word" value={wordScore} />
+        <Score label="remaining" value={remainingLetters.length} />
       </View>
     </View>
   );

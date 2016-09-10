@@ -1,4 +1,5 @@
-import React, { Component, StyleSheet, View, AsyncStorage } from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet, View, AsyncStorage } from 'react-native';
 import { beginGame, addWord, toggleLetter, clearTiles, shuffleRack } from '../actions';
 import Backdrop from './Backdrop';
 import Header from './Header';
@@ -21,11 +22,6 @@ export default class Bejumbled extends Component {
   constructor() {
     super();
 
-    AsyncStorage.getItem(BEST_SCORE)
-      .then(score => {
-        this.setState({ bestScore: Number(score) });
-      });
-
     this.state = beginGame({});
     this.beginGame = () => this.setState(beginGame(this.state));
     this.toggleLetter = index => this.setState(toggleLetter(this.state, index));
@@ -34,35 +30,42 @@ export default class Bejumbled extends Component {
     this.shuffleRack = () => this.setState(shuffleRack(this.state));
   }
 
+  componentDidMount() {
+    AsyncStorage.getItem(BEST_SCORE)
+      .then(score => {
+        this.setState({ bestScore: Number(score) });
+      });
+  }
+
   render() {
     const {
       rack, selectedTiles, wordScore, score, remainingLetters, wordIsValid, bestScore,
     } = this.state;
 
     return (
-      <View style={ styles.container }>
+      <View style={styles.container}>
         <Backdrop />
-        <Header beginGame={ this.beginGame } />
+        <Header beginGame={this.beginGame} />
         <WordEntry
-          rack={ rack }
-          selectedTiles={ selectedTiles }
-          wordIsValid={ wordIsValid }
-          bestScore={ bestScore }
-          score={ score }
-          wordScore={ wordScore }
-          remainingLetters={ remainingLetters }
+          rack={rack}
+          selectedTiles={selectedTiles}
+          wordIsValid={wordIsValid}
+          bestScore={bestScore}
+          score={score}
+          wordScore={wordScore}
+          remainingLetters={remainingLetters}
         />
         <PlayControls
-          addWord={ this.addWord }
-          clearTiles={ this.clearTiles }
-          shuffleRack={ this.shuffleRack }
+          addWord={this.addWord}
+          clearTiles={this.clearTiles}
+          shuffleRack={this.shuffleRack}
         />
         <TileRack
-          rack={ rack }
-          selectedTiles={ selectedTiles }
-          score={ score }
-          toggleLetter={ this.toggleLetter }
-          beginGame={ this.beginGame }
+          rack={rack}
+          selectedTiles={selectedTiles}
+          score={score}
+          toggleLetter={this.toggleLetter}
+          beginGame={this.beginGame}
         />
       </View>
     );

@@ -1,5 +1,6 @@
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
 import { includes, partial } from 'lodash/fp';
-import React, { StyleSheet, View } from 'react-native';
 import { Tile, GameOverTile } from './Tile';
 import letterPoints from '../letterPoints';
 
@@ -22,24 +23,24 @@ export default function TileRack({ rack, selectedTiles, score, toggleLetter, beg
 
     return (
       <Tile
-        key={ index }
-        letter={ letter }
-        points={ letterPoints[letter] }
-        isSelected={ isSelected }
-        onPress={ partial(toggleLetter, [index]) }
+        key={index}
+        letter={letter}
+        points={letterPoints[letter]}
+        isSelected={isSelected}
+        onPress={partial(toggleLetter, [index])}
       />
     );
   });
 
   if (rack.length === 0) {
     letters = (
-      <GameOverTile score={ score } onPress={ beginGame } />
+      <GameOverTile score={score} onPress={beginGame} />
     );
   }
 
   return (
-    <View style={ styles.container }>
-      { letters }
+    <View style={styles.container}>
+      {letters}
     </View>
   );
 }

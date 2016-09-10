@@ -1,4 +1,6 @@
-import React, { StyleSheet, TouchableNativeFeedback, View, Text } from 'react-native';
+import React from 'react';
+import { StyleSheet, View, Text } from 'react-native';
+import Touchable from './Touchable';
 
 const styles = StyleSheet.create({
   container: {
@@ -22,14 +24,14 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function Header({ beginGame, showStats }) {
+export default function Header({ beginGame }) {
   return (
-    <View style={ styles.container }>
-      <TouchableNativeFeedback onPress={ beginGame }>
-        <View style={ styles.headerButton }>
-          <Text style={ styles.headerButtonText }>NEW GAME</Text>
+    <View style={styles.container}>
+      <Touchable onPress={beginGame}>
+        <View style={styles.headerButton}>
+          <Text style={styles.headerButtonText}>NEW GAME</Text>
         </View>
-      </TouchableNativeFeedback>
+      </Touchable>
     </View>
   );
 }

@@ -1,4 +1,5 @@
-import React, { StyleSheet, View, Text } from 'react-native';
+import React from 'react';
+import { StyleSheet, View, Text } from 'react-native';
 
 const styles = StyleSheet.create({
   scoreEntry: {
@@ -23,9 +24,9 @@ const styles = StyleSheet.create({
 
 export default function Score({ label, value }) {
   return (
-    <View style={ styles.scoreEntry }>
-      <Text style={ styles.scoreLabel }>{ label.toUpperCase() }</Text>
-      <Text style={ styles.scoreValue }>{ value }</Text>
+    <View style={styles.scoreEntry}>
+      <Text style={styles.scoreLabel}>{label.toUpperCase()}</Text>
+      <Text style={styles.scoreValue}>{value}</Text>
     </View>
   );
 }
