@@ -50,7 +50,7 @@ export function addWord(state) {
   const wordLength = selectedTiles.length;
 
   const currentWordScore = getScoreForWord(rack, selectedTiles);
-  score = score + currentWordScore;
+  score += currentWordScore;
 
   if (score > bestScore) {
     AsyncStorage.setItem(BEST_SCORE, String(bestScore));
@@ -88,7 +88,7 @@ export function toggleLetter(state, index) {
   let { selectedTiles } = state;
 
   if (includes(index, selectedTiles)) {
-    selectedTiles = without(index, selectedTiles);
+    selectedTiles = without([index], selectedTiles);
   } else {
     selectedTiles = concat(selectedTiles, index);
   }

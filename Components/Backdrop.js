@@ -37,7 +37,7 @@ export default class Backdrop extends Component {
 
     return (
       <View
-        ref={backdropView => { this.backdropView = backdropView; }}
+        ref={(backdropView) => { this.backdropView = backdropView; }}
         style={styles.fullScreen}
         onLayout={this.adjustWidth}
       >

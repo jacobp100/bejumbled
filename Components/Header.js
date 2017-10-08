@@ -1,13 +1,14 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Platform } from 'react-native';
 import Touchable from './Touchable';
 
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
+    marginTop: Platform.OS === 'ios' ? 20 : 0,
   },
   headerButton: {
-    flex: 1,
+    flexGrow: 1,
     paddingVertical: 8,
     paddingHorizontal: 15,
   },

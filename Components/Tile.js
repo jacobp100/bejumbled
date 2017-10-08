@@ -3,10 +3,14 @@ import { StyleSheet, View, Text } from 'react-native';
 import Touchable from './Touchable';
 
 const styles = StyleSheet.create({
+  tileContainer: {
+    flexGrow: 1,
+    flexShrink: 1,
+    flexBasis: 0,
+    maxWidth: 65,
+  },
   tile: {
-    flex: 1,
-    // maxWidth: 60,
-    padding: 5,
+    paddingVertical: 5,
     marginHorizontal: 5,
     marginVertical: 10,
     backgroundColor: '#FFF9C4',
@@ -20,6 +24,7 @@ const styles = StyleSheet.create({
   },
   tilePoints: {
     fontSize: 10,
+    marginRight: 5,
     marginTop: -5,
     fontWeight: '700',
     textAlign: 'right',
@@ -42,30 +47,34 @@ const styles = StyleSheet.create({
 
 export function Tile({ letter, points, isSelected, onPress }) {
   return (
-    <Touchable onPress={onPress}>
-      <View style={[styles.tile, isSelected && styles.tileSelected]}>
-        <Text style={[styles.tileLetter, isSelected && styles.tileLetterSelected]}>
-          {letter}
-        </Text>
-        <Text style={[styles.tilePoints, isSelected && styles.tileLetterSelected]}>
-          {points}
-        </Text>
-      </View>
-    </Touchable>
+    <View style={styles.tileContainer}>
+      <Touchable onPress={onPress}>
+        <View style={[styles.tile, isSelected && styles.tileSelected]}>
+          <Text style={[styles.tileLetter, isSelected && styles.tileLetterSelected]}>
+            {letter}
+          </Text>
+          <Text style={[styles.tilePoints, isSelected && styles.tileLetterSelected]}>
+            {points}
+          </Text>
+        </View>
+      </Touchable>
+    </View>
   );
 }
 
 export function GameOverTile({ score, onPress }) {
   return (
-    <TouchableNativeFeedback onPress={onPress}>
-      <View style={styles.tile}>
-        <Text style={[styles.tileLetter, styles.gameOver]}>
-          GAME OVER
-        </Text>
-        <Text style={[styles.tilePoints, styles.tilePointsScore]}>
-          FINAL SCORE: {score}
-        </Text>
-      </View>
-    </TouchableNativeFeedback>
+    <View style={styles.tileContainer}>
+      <Touchable onPress={onPress}>
+        <View style={styles.tile}>
+          <Text style={[styles.tileLetter, styles.gameOver]}>
+            GAME OVER
+          </Text>
+          <Text style={[styles.tilePoints, styles.tilePointsScore]}>
+            FINAL SCORE: {score}
+          </Text>
+        </View>
+      </Touchable>
+    </View>
   );
 }

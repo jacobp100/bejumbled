@@ -3,10 +3,13 @@ import { StyleSheet, View, Text } from 'react-native';
 
 const styles = StyleSheet.create({
   wordSpace: {
-    flex: 1,
+    flexGrow: 1,
+    flexBasis: 0,
+    maxWidth: 45,
     marginHorizontal: 5,
     paddingVertical: 8,
     alignItems: 'center',
+    backgroundColor: 'transparent',
     borderColor: '#212121',
     borderBottomWidth: 5,
   },
@@ -30,6 +33,7 @@ const styles = StyleSheet.create({
   wordMultiplier: {
     fontSize: 10,
     color: '#424242',
+    textAlign: 'center',
   },
   wordMultiplierContainer: {
     padding: 3,

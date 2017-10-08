@@ -7,12 +7,13 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    alignItems: 'center',
+    alignItems: 'flex-end',
     marginHorizontal: 5,
   },
   score: {
-    flex: 2,
-    paddingLeft: 15,
+    flexBasis: 120,
+    marginLeft: 'auto',
+    alignSelf: 'center',
   },
 });
 

@@ -7,12 +7,12 @@ import letterPoints from '../letterPoints';
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 15,
   },
   score: {
-    flex: 2,
+    flexGrow: 2,
     paddingLeft: 15,
   },
 });

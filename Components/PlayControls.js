@@ -5,13 +5,12 @@ import Touchable from './Touchable';
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
+    justifyContent: 'center',
     paddingHorizontal: 30,
   },
   playButton: {
     flex: 1,
     margin: 10,
-    paddingVertical: 8,
-    alignItems: 'center',
     backgroundColor: '#FF5722',
   },
   playButtonAlternate: {
@@ -20,6 +19,7 @@ const styles = StyleSheet.create({
   playButtonText: {
     fontSize: 15,
     color: '#FAFAFA',
+    padding: 8,
   },
 });
 

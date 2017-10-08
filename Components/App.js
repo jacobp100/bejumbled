@@ -32,9 +32,7 @@ export default class Bejumbled extends Component {
 
   componentDidMount() {
     AsyncStorage.getItem(BEST_SCORE)
-      .then(score => {
-        this.setState({ bestScore: Number(score) });
-      });
+      .then(score => this.setState({ bestScore: Number(score) }));
   }
 
   render() {

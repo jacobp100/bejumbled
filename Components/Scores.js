@@ -7,18 +7,22 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   scoreLabel: {
-    flex: 3,
+    flexGrow: 3,
+    flexBasis: 0,
     marginRight: 6,
     textAlign: 'right',
     fontSize: 10,
     fontWeight: '900',
     color: '#F57F17',
+    backgroundColor: 'transparent',
   },
   scoreValue: {
-    flex: 2,
+    flexGrow: 2,
+    flexBasis: 0,
     fontSize: 12,
     fontWeight: '700',
     color: '#FF6F00',
+    backgroundColor: 'transparent',
   },
 });
 
