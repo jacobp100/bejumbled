@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   },
   tile: {
     paddingVertical: 5,
-    marginHorizontal: 5,
+    marginHorizontal: 3,
     marginVertical: 10,
     backgroundColor: '#FFF9C4',
     borderWidth: 2,

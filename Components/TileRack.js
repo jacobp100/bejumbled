@@ -2,14 +2,14 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { includes, partial } from 'lodash/fp';
 import { Tile, GameOverTile } from './Tile';
-import letterPoints from '../letterPoints';
+import letterPoints from '../letterPoints.json';
 
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 15,
+    paddingHorizontal: 3,
   },
   score: {
     flexGrow: 2,
